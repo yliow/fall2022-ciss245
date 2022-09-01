@@ -1,13 +1,23 @@
 #include <iostream>
+#include <ctime>
+#include <cstdlib>
 
 int num_digits(int n);
 
 
 int main()
 {
-    int n;
-    std::cin >> n;
-    std::cout << num_digits(n) << '\n';
+    srand((unsigned int) time(NULL));
+    for (int i = 0; i < 10; ++i)
+    {
+        int r = rand();
+        std::cout << r << '\n';
+    }
+    std::cout << RAND_MAX << '\n';
+    
+    // int n;
+    // std::cin >> n;
+    // std::cout << num_digits(n) << '\n';
     return 0;
 }
 
@@ -30,3 +40,4 @@ int num_digits(int n)
         return count;
     }
 }
+
