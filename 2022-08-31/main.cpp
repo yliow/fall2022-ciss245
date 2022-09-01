@@ -1,5 +1,6 @@
 #include <iostream>
 
+
 void draw_line(int n)
 {
     for (int i = 0; i < n; ++i)
@@ -8,6 +9,7 @@ void draw_line(int n)
     }
     std::cout << '\n';
 }
+
 
 void draw_line_2(int n)
 {
@@ -18,6 +20,7 @@ void draw_line_2(int n)
     std::cout << '\n';
 }
 
+
 void triangle(int n)
 {
     for (int i = n; i >= 1; --i)
@@ -25,6 +28,7 @@ void triangle(int n)
         draw_line(i);
     }
 }
+
 
 int main()
 {
