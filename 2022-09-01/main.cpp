@@ -22,6 +22,8 @@ int num_digits(int n)
         int count = 0;
         while (n != 0)
         {
+            //int digit = n % 10;
+            //std::cout << digit << '\n';
             n /= 10;
             ++count;
         }
