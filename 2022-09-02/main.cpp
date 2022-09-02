@@ -8,7 +8,7 @@ int f(int x)
     std::cout << "x of f = " << x << '\n';
     return 42;
 }
-int g(int x)
+int g(int & x)
 {
     std::cout << "x of g = " << x << '\n';
     x = 0;
