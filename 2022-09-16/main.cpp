@@ -17,7 +17,19 @@ void Array_println(int x[], int size=10)
     std::cout << '\n';
 }
 
+// sum_int_int
 int sum(int i, int j)
+{
+    return i + j;
+}
+
+// sum_double_double
+double sum(double i, double j)
+{
+    return i + j;
+}
+// sum_double_double
+int sum(double i, double j)
 {
     return i + j;
 }
@@ -33,5 +45,9 @@ int main()
     int i = 0, j = 1;
     int z = sum(i, j);
     std::cout << z << '\n';
+
+    double x = 0.1, y = 0.2;
+    std::cout << sum(x, y) << '\n';
+
     return 0;
 }
