@@ -1,6 +1,16 @@
 #include <iostream>
 #include <fstream>
 
+int mystrlen(char s[])
+{
+    int i = 0;
+    while (s[i] != '\0')
+    {
+        ++i;
+    }
+    return i;
+}
+
 //            6 is returned
 //            v
 // s = "abcdefghijkl"
@@ -38,7 +48,7 @@ int main()
     }
     std::cout << s << '\n';
 
-    char title = "Title: ";
+    char title[] = "Title: ";
     int index = find(s, title);
     
     return 0;
