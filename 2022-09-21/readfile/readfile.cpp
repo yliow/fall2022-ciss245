@@ -23,9 +23,9 @@ int find(char s[], char target[])
     for (int i = 0; i <= mystrlen(s) - mystrlen(target); ++i)
     {
         bool found = true;
-        for (int j = 0; j < mystrlen(t); ++j)
+        for (int j = 0; j < mystrlen(target); ++j)
         {
-            if (s[i + j] != t[j])
+            if (s[i + j] != target[j])
             {
                 found = false;
                 break;
@@ -49,7 +49,13 @@ int main()
     std::cout << s << '\n';
 
     char title[] = "Title: ";
-    int index = find(s, title);
+    int index0 = find(s, title);
+    // print first 20 characters after title is found
+    for (int i = index0 + 7; i < index0 + 27; ++i)
+    {
+        std::cout << s[i];
+    }
+    std::cout << '\n';
     
     return 0;
 }
