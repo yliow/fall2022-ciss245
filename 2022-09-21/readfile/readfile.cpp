@@ -28,7 +28,7 @@ int find(char s[], char target[])
 
 int main()
 {
-    std::ifstream f("/home/student/Downloads/1661-0.txt", std::ios::in);
+    std::ifstream f("1661-0.txt", std::ios::in);
     char s[700000];
 
     int i = 0;
