@@ -1,6 +1,31 @@
 #include <iostream>
 #include <fstream>
 
+//            6 is returned
+//            v
+// s = "abcdefghijkl"
+// t = "ghi"
+//      "ghi"
+//       "ghi"
+//              "ghi"         
+int find(char s[], char target[])
+{
+    for (int i = 0; i <= mystrlen(s) - mystrlen(target); ++i)
+    {
+        bool found = true;
+        for (int j = 0; j < mystrlen(t); ++j)
+        {
+            if (s[i + j] != t[j])
+            {
+                found = false;
+                break;
+            }
+        }
+        if (found) return i;
+    }
+    return -1;
+}
+
 int main()
 {
     std::ifstream f("/home/student/Downloads/1661-0.txt", std::ios::in);
@@ -11,6 +36,10 @@ int main()
     {
         ++i;
     }
-    std::cout << s << '\n';    
+    std::cout << s << '\n';
+
+    char title = "Title: ";
+    int index = find(s, title);
+    
     return 0;
 }
