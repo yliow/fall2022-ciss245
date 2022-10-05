@@ -51,6 +51,9 @@ int main()
     f0 = f0 + f1; // f0 + f1 ----> opeartor+(f0, f1)
     Fraction_println(f0);
 
+    Fraction_set(&f0, 1, 2); // <<<<<<<
+    Fraction_println(f0);
+    
     return 0;
 }
 

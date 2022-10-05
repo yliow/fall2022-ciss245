@@ -7,6 +7,12 @@ void Fraction_set(Fraction & f, int n, int d)
     f.d = d;
 }
 
+void Fraction_set(Fraction * p, int n, int d)
+{
+    (*p).n = n;
+    (*p).d = d;
+}
+
 void Fraction_print(const Fraction & f)
 {
     std::cout << f.n << '/' << f.d;
