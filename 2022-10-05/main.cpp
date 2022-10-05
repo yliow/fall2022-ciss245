@@ -53,7 +53,7 @@ int main()
 
     Fraction_set(&f0, 1, 2); // <<<<<<<
     Fraction_println(f0);
-    
+
     return 0;
 }
 

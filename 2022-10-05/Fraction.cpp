@@ -9,8 +9,8 @@ void Fraction_set(Fraction & f, int n, int d)
 
 void Fraction_set(Fraction * p, int n, int d)
 {
-    (*p).n = n;
-    (*p).d = d;
+    p->n = n; // same as (*p).n = n i.e., p->n = (*p).n
+    p->d = d; // same as (*p).d = d i.e., p->d = (*p).d
 }
 
 void Fraction_print(const Fraction & f)
