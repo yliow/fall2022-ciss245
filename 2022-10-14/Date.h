@@ -1,8 +1,9 @@
 // Date.h
 #ifndef DATE_H
 #define DATE_H
-struct Date
+class Date
 {
+public:
     void init(int, int, int);
     void print();
     void add_y(int);
