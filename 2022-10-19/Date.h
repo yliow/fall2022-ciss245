@@ -23,7 +23,7 @@ public:
     bool equals(const Date &);
     bool operator==(const Date &) const;
     bool operator!=(const Date &) const;
-    Date operator+=(int);
+    const Date & operator+=(int);
     Date operator+(int) const;
 private:
     int yyyy_, mm_, dd_;

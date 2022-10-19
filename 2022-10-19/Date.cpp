@@ -95,7 +95,7 @@ std::ostream & operator<<(std::ostream & cout, const Date & date)
     return cout;
 }
 
-Date Date::operator+=(int dd)
+const Date & Date::operator+=(int dd)
 {
     dd_ += dd;
     // the object invoking this method call is around
