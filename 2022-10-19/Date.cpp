@@ -75,14 +75,14 @@ bool Date::equals(const Date & date)
             dd_ == date.dd_);
 }
 
-bool Date::operator==(const Date & date)
+bool Date::operator==(const Date & date) const
 {
     return (yyyy_ == date.yyyy_ &&
             mm_ == date.mm_ &&
             dd_ == date.dd_);
 }
 
-bool Date::operator!=(const Date & date)
+bool Date::operator!=(const Date & date) const
 {
     return !operator==(date);
 }
@@ -104,7 +104,7 @@ Date Date::operator+=(int dd)
     return (*this);
 }
 
-Date Date::operator+(int dd)
+Date Date::operator+(int dd) const
 {
     Date ret = (*this);
     return (ret += dd);

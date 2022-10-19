@@ -21,10 +21,10 @@ public:
     int get_day() const;
     void set_day(int);
     bool equals(const Date &);
-    bool operator==(const Date &);
-    bool operator!=(const Date &);
+    bool operator==(const Date &) const;
+    bool operator!=(const Date &) const;
     Date operator+=(int);
-    Date operator+(int);
+    Date operator+(int) const;
 private:
     int yyyy_, mm_, dd_;
 };
