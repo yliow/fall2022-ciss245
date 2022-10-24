@@ -9,6 +9,8 @@ class Date
 public:
     Date();
     Date(int yyyy, int mm, int dd);
+    Date(const Date &);
+    ~Date();
     void init(int, int, int);
     void print() const;
     void add_y(int);

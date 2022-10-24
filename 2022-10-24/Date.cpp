@@ -125,3 +125,15 @@ Date::Date()
 Date::Date(int yyyy, int mm, int dd)
     : yyyy_(yyyy), mm_(mm), dd_(dd)
 {}
+
+Date::Date(const Date & date)
+    : yyyy_(date.yyyy_), mm_(date.mm_), dd_(date.dd_)
+{
+    std::cout << "in Date::Date(const Date &) ...\n";
+}
+
+Date::~Date()
+{
+    std::cout << "in Date::~Date() ...\n";
+    std::cout << yyyy_ << '\n';
+}

@@ -44,13 +44,17 @@ int main()
     std::cout << (1 + dummy) << '\n';
 
     Date d(2022, 10, 24);
-    std::cout << "d: " << d << '\n'; 
+    std::cout << "d: " << d << '\n';
+
+    Date e(d);
+    e.set_year(99999);
+    std::cout << "e: " << e << '\n';
+
+
+    Date d(1000, 2000, 3000);
+    Date e;
+
+    //Date d = Date(1000, 2000, 3000);
+    
     return 0;
-}
-
-
-
-
-
-
-
+} // e.~Date()
