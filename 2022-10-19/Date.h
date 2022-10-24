@@ -29,7 +29,6 @@ private:
     int yyyy_, mm_, dd_;
 };
 
-void init(int, int, int);
 std::ostream & operator<<(std::ostream &, const Date &);
 Date operator+(int, const Date &);
 
