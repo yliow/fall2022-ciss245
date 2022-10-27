@@ -40,6 +40,6 @@ int main()
     *p = 42;
     std::cout << *p << '\n';
     // no need to deallocate p.p_ ... do that in the destructor
-
+    
     return 0;
 } // p calls destructor
