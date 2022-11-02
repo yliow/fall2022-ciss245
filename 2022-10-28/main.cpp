@@ -3,12 +3,17 @@
 int main()
 {
     IntArray a; // a wraps a dyn array, i.e., a has x_[0..9], size_, capacity_=10;
-    a.size_ = 4;
+    //a.size_ = 4;
     std::cout << a << '\n'; // {1, 3, 5, 2, 4}
-    // a.push_back(4);   // a <-> {4}
-    // a.push_back(6);   // a <-> {4, 6}
-    // a.push_back(3);   // a <-> {4, 6, 3}
-    // a.push_front{42}; // a <-> {42, 4, 6, 3}
+    a.push_back(4);         // a <-> {4}
+    std::cout << a << '\n'; // {1, 3, 5, 2, 4}
+    a.push_back(6);         // a <-> {4, 6}
+    std::cout << a << '\n'; // {1, 3, 5, 2, 4}
+    a.push_back(3);         // a <-> {4, 6, 3}
+    std::cout << a << '\n'; // {1, 3, 5, 2, 4}
+    a.push_front(42);       // a <-> {42, 4, 6, 3}
+    std::cout << a << '\n'; // {1, 3, 5, 2, 4}
+    std::cout << a.size() << '\n';
     // a.insert(2, 99);  // a <-> {42, 4, 99, 6, 3}
     // a.pop_front();    // a <-> {4, 99, 6, 3}
     // a.pop_back();     // a <-> {4, 99, 6}
