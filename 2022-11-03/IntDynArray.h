@@ -27,14 +27,16 @@ class IntDynArray
 public:
     IntDynArray(int);
     ~IntDynArray();
+    IntDynArray(const IntDynArray &);
     int size() const;
-    void resize(int); 
+    void resize(int);
+    int operator[](int) const;
+    int & operator[](int);
 //private:
-    int * p_;
     int capacity_;
   private:
     int size_;
-
+    int * p_;
 };
 
 std::ostream & operator<<(std::ostream &,
