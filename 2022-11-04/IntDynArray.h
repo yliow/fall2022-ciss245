@@ -33,11 +33,10 @@ public:
     int operator[](int) const;
     int & operator[](int);
     void operator=(const IntDynArray &);
-//private:
-    int capacity_;
-  private:
-    int size_;
+private:
     int * p_;
+    int size_;
+    int capacity_;
 };
 
 std::ostream & operator<<(std::ostream &,

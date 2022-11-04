@@ -7,8 +7,7 @@ IntDynArray::IntDynArray(int capacity)
 {}
 
 IntDynArray::IntDynArray(const IntDynArray & a)
-    : p_(new int[a.capacity_]), size_(a.size_),
-      capacity_(a.capacity_)
+    : p_(new int[a.capacity_]), size_(a.size_), capacity_(a.capacity_)
 {
     for (int i = 0; i < a.size_; ++i)
     {
@@ -34,14 +33,16 @@ void IntDynArray::resize(int size)
     }
     else
     {
-        delete [] p_;
-        p_ = new int[size];
-        capacity_ = size;
-        size_ = size;
-        for (int i = 0; i < a.size_; ++i)
+        // not enough, need to reallocate ...
+        int * q = new int[size];
+        for (int i = 0; i < size_; ++i)
         {
-            p_[i] = a.p_[i];
+            q[i] = p_[i];
         }
+        delete [] p_;
+        p_ = q;
+        size_ = size;
+        capacity_ = size;
     }
 }
 
@@ -98,7 +99,7 @@ void IntDynArray::operator=(const IntDynArray & a)
             size_ = a.size_;
             capacity_ = a.size_;
         }
-        else // ?
+        else // do not need to reallocate
         {
             size_ = a.size_;
             for (int i = 0; i < a.size_; ++i)

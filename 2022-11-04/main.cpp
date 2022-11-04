@@ -19,6 +19,10 @@ int main()
 
     IntDynArray c(1000);
     c = a;
+    std::cout << "c: " << c << '\n';
+
+    c.resize(20);
+    std::cout << "c: " << c << '\n';
         
     return 0;
 }
