@@ -23,6 +23,15 @@ int main()
 
     c.resize(20);
     std::cout << "c: " << c << '\n';
+
+    // Another case that requires memory reallocation:
+    //
+    // IntDynArray d(5);
+    // for (int i = 0; i < 5; ++i)
+    // {
+    //     d.push_back(i); // no memory reallocation
+    // }
+    // d.push_back(99); // need memory reallocation
         
     return 0;
 }
