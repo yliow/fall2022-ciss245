@@ -28,13 +28,39 @@ int IntDynArray::size() const
 
 void IntDynArray::resize(int size)
 {
-    size_ = size;
+    if (size_ < capacity_)
+    {
+        size_ = size;
+    }
+    else
+    {
+        delete [] p_;
+        p_ = new int[size];
+        capacity_ = size;
+        size_ = size;
+        for (int i = 0; i < a.size_; ++i)
+        {
+            p_[i] = a.p_[i];
+        }
+    }
 }
 
 int IntDynArray::operator[](int i) const
 {
     return p_[i];
 }
+
+// int IntDynArray::at(int i) const
+// {
+//     if (0 < i && i < size_)
+//     {
+//         return p_[i];
+//     }
+//     else
+//     {
+//         throw std::exception
+//     }
+// }
 
 int & IntDynArray::operator[](int i)
 {
@@ -62,14 +88,23 @@ void IntDynArray::operator=(const IntDynArray & a)
         if (a.size_ > capacity_)
         {
             // if not enough, need to reallocate ...
+            int * q = new int[a.size_];
+            for (int i = 0; i < a.size_; ++i)
+            {
+                q[i] = p_[i];
+            }
             delete [] p_;
-            p_ = new int[a.size_];
+            p_ = q;
+            size_ = a.size_;
             capacity_ = a.size_;
         }
-        size_ = a.size_;
-        for (int i = 0; i < a.size_; ++i)
+        else // ?
         {
-            p_[i] = a.p_[i];
+            size_ = a.size_;
+            for (int i = 0; i < a.size_; ++i)
+            {
+                p_[i] = a.p_[i];
+            }
         }
     }
 }
