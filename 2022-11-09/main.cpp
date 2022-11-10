@@ -63,13 +63,13 @@ class Fib
 {
 public:
     Fib()
-        : t(new int[20])
+        : table(new int[20])
     {
-        t[0] = t[1] = 1;
+        table[0] = table[1] = 1;
     }
     ~Fib()
     {
-        delete [] t;
+        delete [] table;
     }
     int operator()(int n)
     {
@@ -80,7 +80,7 @@ public:
         return table[n];
     }
     
-    int * t;
+    int * table;
 };
 
 int main()
