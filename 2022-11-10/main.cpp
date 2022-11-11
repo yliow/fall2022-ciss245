@@ -3,17 +3,25 @@
 
 int main()
 {
-    C c(42);
-    std::cout << c.i << ' ' << c.j << ' ' << C::j << '\n';
+    std::cout << "num:" << C::num_objects * sizeof(C) << '\n';
+    C c0(42);
+    std::cout << "num:" << C::num_objects * sizeof(C) << '\n';
+    C c1(42);
+    std::cout << "num:" << C::num_objects * sizeof(C) << '\n';
+    C c2(42);
+    std::cout << "num:" << C::num_objects * sizeof(C) << '\n';
+    // C::num_objects = 3
 
-    C d(99);
-    std::cout << d.i << ' ' << d.j << ' ' << C::j << '\n';
-
-    c.j = -1;
-    std::cout << c.j << ' ' << d.j << '\n';
-    std::cout << &(c.j) << ' ' << &(d.j) << '\n';
-
-    C::increment_j();
-    std::cout << C::j << '\n';
+    int x = 0;
+    if (x == 0)
+    {
+        C c3(42);
+        std::cout << "num:" << C::num_objects * sizeof(C) << '\n';
+        C c4(42);
+        std::cout << "num:" << C::num_objects * sizeof(C) << '\n';
+    }
+    std::cout << "num:" << C::num_objects * sizeof(C) << '\n';
+        
+    
     return 0;
 }
