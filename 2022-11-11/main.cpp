@@ -64,7 +64,7 @@ int main()
 {
     Surface surface;
     Apple a;
-    a.set(2, 4);
+    a.set(2, 3);
     surface.put(a);
     surface.draw();
     return 0;
