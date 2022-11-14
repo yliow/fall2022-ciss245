@@ -19,6 +19,10 @@ private:
     int x_, y_;
 };
 
+class Snake
+{
+    
+};
 
 class Surface
 {
@@ -70,6 +74,7 @@ int main()
     srand((unsigned int) time(NULL));
     Surface surface;
     Apple a;
+    Snake snake;
 
     bool game_ended = false;
     while (not game_ended)
