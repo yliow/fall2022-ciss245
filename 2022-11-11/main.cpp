@@ -1,10 +1,13 @@
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
+#include <vector>
 
 class Apple
 {
 public:
     Apple(int x=0, int y=0)
-        : x_(x), y_(y)
+        : x_(rand() % 5), y_(rand() % 10)
     {}
     void set(int x, int y)
     {
@@ -15,6 +18,7 @@ public:
 private:
     int x_, y_;
 };
+
 
 class Surface
 {
@@ -60,12 +64,23 @@ private:
     char surface_[5][10];
 };
 
+
 int main()
 {
+    srand((unsigned int) time(NULL));
     Surface surface;
     Apple a;
-    a.set(2, 3);
-    surface.put(a);
-    surface.draw();
+
+    bool game_ended = false;
+    while (not game_ended)
+    {
+        surface.clear();
+        surface.put(a);
+        surface.draw();
+        std::cout << "w-north s-south d-east a-west n-no input: ";
+        char option;
+        std::cin >> option;
+    }
+    
     return 0;
 }
