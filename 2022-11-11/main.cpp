@@ -7,7 +7,7 @@ class Apple
 {
 public:
     Apple(int x=0, int y=0)
-        : x_(rand() % 5), y_(rand() % 10)
+        : x_(rand() % 10), y_(rand() % 5)
     {}
     void set(int x, int y)
     {
