@@ -43,7 +43,6 @@ public:
         std::cout << "+\n";
     }
 private:
-    // 10x10
     char surface_[5][10];
 };
 
@@ -51,7 +50,7 @@ class Apple
 {
 public:
     Apple(Surface * psurface, int x=0, int y=0)
-        : psurface_(psurface), x_(rand() % 10), y_(rand() % 5)
+        : psurface_(psurface), x_(x), y_(y)
     {}
     void set(int x, int y)
     {
@@ -97,7 +96,7 @@ int main()
 {
     srand((unsigned int) time(NULL));
     Surface surface;
-    Apple a(&surface);
+    Apple a(&surface, 0, 0);
     //Snake snake;
     Head head(&surface, 4, 3, 1);
 
