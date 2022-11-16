@@ -18,9 +18,9 @@ class Car
 {
 public:
     Car(int id)
-        : id_(id), anEngine(3)
+        : id_(id), anEngine_(3)
     {}
-    Engine & getEngine()
+    Engine & getEngine() 
     {
         return anEngine_;
     }
@@ -35,8 +35,13 @@ private:
 
 int main()
 {
-    Car aCar(42);
-    aCar.start();
+    Car aCar0(42);
+    std::cout << "aCar0 starting engine in a clumsy way ...\n";
+    aCar0.getEngine().start();
+    
+    Car aCar1(42);
+    std::cout << "aCar1 starting engine in a cleaner way (by delegation) ...\n";
+    aCar1.start();
     
     return 0;
 }
