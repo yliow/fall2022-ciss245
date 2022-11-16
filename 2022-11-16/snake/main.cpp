@@ -3,27 +3,6 @@
 #include <ctime>
 #include <vector>
 
-class Apple
-{
-public:
-    Apple(int x=0, int y=0)
-        : x_(rand() % 10), y_(rand() % 5)
-    {}
-    void set(int x, int y)
-    {
-        x_ = x; y_ = y;
-    }
-    int x() const { return x_; }
-    int y() const { return y_; }
-private:
-    int x_, y_;
-};
-
-class Snake
-{
-    
-};
-
 class Surface
 {
 public:
@@ -35,10 +14,6 @@ public:
                 surface_[r][c] = ' ';
         }
     }
-    void put(const Apple & a)
-    {
-        surface_[a.y()][a.x()] = 'A';
-    }
     void clear()
     {
         for (int r = 0; r < 5; ++r)
@@ -46,6 +21,10 @@ public:
             for (int c = 0; c < 10; ++c)
                 surface_[r][c] = ' ';
         }
+    }
+    char & operator()(int x, int y)
+    {
+        return surface_[y][x];
     }
     void draw()
     {
@@ -68,19 +47,66 @@ private:
     char surface_[5][10];
 };
 
+class Apple
+{
+public:
+    Apple(Surface * psurface, int x=0, int y=0)
+        : psurface_(psurface), x_(rand() % 10), y_(rand() % 5)
+    {}
+    void set(int x, int y)
+    {
+        x_ = x; y_ = y;
+    }
+    int x() const { return x_; }
+    int y() const { return y_; }
+    void draw()
+    {
+        (*psurface_)(x_, y_) = 'A';
+    }
+private:
+    Surface * psurface_;
+    int x_, y_;
+};
+
+class Snake
+{
+    
+};
+
+class Head
+{
+public:
+    Head(Surface * psurface, int x, int y, int dir)
+        : psurface_(psurface), x_(x), y_(y), dir_(dir)
+    {}
+    int x() const { return x_; }
+    int y() const { return y_; }
+    void draw()
+    {
+        (*psurface_)(x_, y_) = 'H';
+    }
+private:
+    Surface * psurface_;
+    int x_, y_;
+    int dir_;
+};
+
+
 
 int main()
 {
     srand((unsigned int) time(NULL));
     Surface surface;
-    Apple a;
-    Snake snake;
+    Apple a(&surface);
+    //Snake snake;
+    Head head(&surface, 4, 3, 1);
 
     bool game_ended = false;
     while (not game_ended)
     {
         surface.clear();
-        surface.put(a);
+        a.draw();
+        //surface.put(head);
         surface.draw();
         std::cout << "w-north s-south d-east a-west n-no input: ";
         char option;
