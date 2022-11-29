@@ -38,6 +38,8 @@ int g()
     {
         std::cout << "g is catcher\n";
         std::cout << "i caught a ZeroDivError ... etc\n";
+        // rethrow the error object
+        throw;
     }
     
     return 0;
@@ -45,15 +47,15 @@ int g()
 
 int main()
 {
-    try
-    {
+    // try
+    // {
         g();
-    }
-    catch (SqrtOfNegError & e)
-    {
-        std::cout << "main is catcher\n";
-        std::cout << "i caught a sqrt-of-neg-number error ... etc\n";
-        std::cout << e << '\n';
-    }
+    // }
+    // catch (SqrtOfNegError & e)
+    // {
+    //     std::cout << "main is catcher\n";
+    //     std::cout << "i caught a sqrt-of-neg-number error ... etc\n";
+    //     std::cout << e << '\n';
+    // }
     return 0;
 }
