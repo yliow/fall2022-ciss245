@@ -16,6 +16,12 @@ T max(T x, T y)
     return (x >= y ? x : y);
 }
 
+template < typename S, typename T >
+T f(T x, S y)
+{
+    return x + 2 / y;
+}
+
 int main()
 {
     std::cout << max< int >(2, 5) << '\n';
@@ -27,6 +33,7 @@ int main()
     std::cout << max< char >('a', 'b') << '\n';
     std::cout << max< char >('b', 'a') << '\n';
 
+    std::cout << f< int, double >(2, 3.14) << '\n';
     return 0;
 }
     
