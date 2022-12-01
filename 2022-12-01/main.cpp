@@ -1,24 +1,45 @@
 #include <iostream>
 
-class Star
+class GameObject // any visible eneity of the game
 {
 public:
-    Star(int x, int y, int radius, int r, int g, int b,
-         int dx, int dy)
-        : x_(x), y_(y), radius_(radius),
-          r_(r), g_(g), b_(b),
-          dx_(dx), dy_(dy)
-    {}
+    //  GameObject(int x, int y, int r, int g, int b,
+    //             int dx, int dy)
+    //      : x_(x), y_(y), 
+    //        r_(r), g_(g), b_(b),
+    //        dx_(dx), dy_(dy)
+    // {}
+    GameObject(int x)
+        : x_(x)
+    {
+        std::cout << "GameObject::GameObject() ... x:" << x << "\n";
+    }
     int get_x() const
     {
         return x_;
     }
+private:
+    int x_, y_;
+    int r_, g_, b_;
+    int dx_, dy_;    
+};
+
+class Star: public GameObject
+{
+public:
+    Star(int x, int y, int radius, int r, int g, int b,
+         int dx, int dy)
+        : GameObject(x),
+          y_(y), radius_(radius),
+          r_(r), g_(g), b_(b),
+          dx_(dx), dy_(dy)
+    {}
     void print() const
     {
-        std::cout << "star at " << x_ << '\n';
+        //std::cout << "star at " << x_ << '\n';
     }
 private:
-    int x_, y_, radius_;
+    int y_, radius_;
     int r_, g_, b_;
     int dx_, dy_;
 };
