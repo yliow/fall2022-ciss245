@@ -34,9 +34,13 @@ public:
           r_(r), g_(g), b_(b),
           dx_(dx), dy_(dy)
     {}
+    int get_x() const
+    {
+        return 999999999;
+    }
     void print() const
     {
-        //std::cout << "star at " << x_ << '\n';
+        std::cout << "star at " << get_x() << '\n';
     }
 private:
     int y_, radius_;
@@ -70,7 +74,7 @@ private:
 
 int main()
 {
-    Star star(0, 0, 5, 255, 255, 255, 0, 1);
+    Star star(42, 0, 5, 255, 255, 255, 0, 1);
     Laser laser(100, 200, 5, 8, 255, 255, 255, 0, 1);
     
     star.print();
