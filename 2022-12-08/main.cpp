@@ -41,8 +41,8 @@ int max2(int * start, int * end)
     }
     else // recursive
     {
-        int step = (end - start) / 2;
-        int * mid = start + step;
+        int step = (end - start) / 2; // <--- NOTE THE CHANGE
+        int * mid = start + step;     // <--- NOTE THE CHANGE
         int leftmax = max2(start, mid);
         int rightmax = max2(mid, end);
         return (leftmax >= rightmax ? leftmax : rightmax);
