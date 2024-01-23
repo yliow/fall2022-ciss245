@@ -2,24 +2,33 @@
 #include <cstdlib>
 #include <ctime>
 
-class Dog
+class Animal
+{
+public:
+    Animal(int num_legs)
+        : num_legs_(num_legs)
+    {}
+    virtual void talk() = 0;
+    int num_legs_;
+};
+
+class Dog: public Animal
 {
 public:
     Dog()
-        : num_legs_(4)
+        : Animal(4)
     {}
     void talk()
     {
         std::cout << "bowwow\n";
     }
-    int num_legs_;
 };
 
-class Cat
+class Cat: public Animal
 {
 public:
     Cat()
-        : num_legs_(4)
+        : Animal(4)
     {}
     void talk()
     {
@@ -28,15 +37,33 @@ public:
             std::cout << "meow\n";
         }
     }
-    int num_legs_;
 };
 
 int main()
 {
     srand((unsigned int) time(NULL));
+    // Dog dog;
+    // Cat cat;
+    // dog.talk();
+    // cat.talk();
+
     Dog dog;
-    Cat cat;
     dog.talk();
-    cat.talk();
+    Animal * panimal;
+    std::cout << "0-dog, 1-cat?";
+    int option;
+    std::cin >> option;
+    if (option == 0)
+        panimal = new Dog;
+    else
+        panimal = new Cat;
+
+    //----------------------------
+
+    for (int i = 0; i < 10; ++i)
+    {
+        panimal->talk();
+    }
+    
     return 0;
 }
